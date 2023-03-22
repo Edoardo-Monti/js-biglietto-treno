@@ -20,35 +20,38 @@
 
 function prezzo(){
 
-    let chilometri = document.getElementById(`chilometri`).value
-    let eta = document.getElementById(`eta`).value
+    let chilometri = parseInt(document.getElementById("chilometri").value)
+
+    // let chilometri = document.getElementById("chilometri").value
+    // chilometri = parseInt(chilometri)
+
+    let eta = parseInt(document.getElementById("eta").value)
+    console.log(eta)
+
     const prezzoAlChilometro = 0.21
-    let prezzoBigliettoIntero = `${prezzoAlChilometro * chilometri}`
-    let prezzo20percento = `${prezzoBigliettoIntero * 0.20}`
-    let prezzo40percento = `${prezzoBigliettoIntero * 0.40}`
+    let prezzoBigliettoIntero = prezzoAlChilometro * chilometri
+    let sconto20percento = prezzoBigliettoIntero * 0.20
+    let sconto40percento = prezzoBigliettoIntero * 0.40
+    let childPrice = prezzoBigliettoIntero - sconto20percento
 
     console.log(`${prezzoBigliettoIntero}`)
 
     if(eta <= 17){
-        console.log(`il prezzo diventa:${prezzoBigliettoIntero - prezzo20percento}`)
-    }else if(eta >= 18 || eta < 65){
-        console.log(`${prezzoBigliettoIntero}`)
+        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${childPrice}</h1>`
+    }else if(eta >= 65){
+        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${prezzoBigliettoIntero - sconto40percento}</h1>`
+    }else{
+        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${prezzoBigliettoIntero}</h1>`
     }
     
-    if(eta >= 65){
-        console.log(`il prezzo diventa:${prezzoBigliettoIntero - prezzo40percento}`)
-    }
     
-   
+    let rounded = Math.round((childPrice + Number.EPSILON) * 100) / 100;
+    console.log(rounded);
+    console.log(`${childPrice}`)
 }
 
 
-document.getElementById(`prezzoformaumana`).innerHTML = prezzo();
 
-
-// document.getElementById(`prezzoformaumana`).addEventListener(`click`, function(){
-//     prezzo();
-// })
 
 
 
