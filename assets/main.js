@@ -38,12 +38,13 @@ function prezzo(){
     if(eta >= 65){
         console.log(`il prezzo diventa:${prezzoBigliettoIntero - prezzo40percento}`)
     }
-
-
-    // console.log.apply(document.getElementById(`prezzoformaumana`).innerHTML = `${prezzo}`)
+    
+   
 }
 
-// console.log.apply(document.getElementById(`prezzoformaumana`).innerHTML = `${prezzo}`)
+document.getElementById(`prezzoformaumana`).addEventListener(`click`, function(){
+    prezzo();
+})
 
 
 
