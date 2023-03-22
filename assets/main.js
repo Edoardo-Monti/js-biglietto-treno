@@ -42,9 +42,13 @@ function prezzo(){
    
 }
 
-document.getElementById(`prezzoformaumana`).addEventListener(`click`, function(){
-    prezzo();
-})
+
+document.getElementById(`prezzoformaumana`).innerHTML = prezzo();
+
+
+// document.getElementById(`prezzoformaumana`).addEventListener(`click`, function(){
+//     prezzo();
+// })
 
 
 
