@@ -20,10 +20,7 @@
 
 function prezzo(){
 
-    let chilometri = parseInt(document.getElementById("chilometri").value)
-
-    // let chilometri = document.getElementById("chilometri").value
-    // chilometri = parseInt(chilometri)
+    let chilometri = parseFloat(document.getElementById("chilometri").value)
 
     let eta = parseInt(document.getElementById("eta").value)
     console.log(eta)
@@ -37,17 +34,13 @@ function prezzo(){
     console.log(`${prezzoBigliettoIntero}`)
 
     if(eta <= 17){
-        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${childPrice}</h1>`
+        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${childPrice.toFixed(2)}</h1>`
     }else if(eta >= 65){
-        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${prezzoBigliettoIntero - sconto40percento}</h1>`
+        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${prezzoBigliettoIntero - sconto40percento.toFixed(2)}</h1>`
     }else{
-        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${prezzoBigliettoIntero}</h1>`
+        document.getElementById(`prezzoformaumana`).innerHTML = `prezzo ticket:<h1>${prezzoBigliettoIntero.toFixed(2)}</h1>`
     }
     
-    
-    let rounded = Math.round((childPrice + Number.EPSILON) * 100) / 100;
-    console.log(rounded);
-    console.log(`${childPrice}`)
 }
 
 
